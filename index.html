@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101014">
+  <title>QuietBeat — Ad-Free Music Player</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="QuietBeat home"><span class="brand-mark">♫</span> QuietBeat</a>
+      <span class="ad-free"><span class="dot"></span> NO ADS · YOUR MUSIC</span>
+    </header>
+
+    <section class="hero">
+      <div class="eyebrow">YOUR PERSONAL MUSIC SPACE</div>
+      <h1>All your music.<br><span>No distractions.</span></h1>
+      <p>Play songs you own or have permission to use. Add audio files from your device and build your own playlist.</p>
+      <label class="upload-button" for="filePicker"><span>＋</span> Add music files</label>
+      <input id="filePicker" type="file" accept="audio/*" multiple hidden>
+      <p class="privacy-note">Files stay in your browser session; nothing is uploaded.</p>
+    </section>
+
+    <section class="player-card" aria-label="Music player">
+      <div class="cover" id="cover">
+        <div class="cover-orbit orbit-one"></div>
+        <div class="cover-orbit orbit-two"></div>
+        <div class="cover-note">♫</div>
+      </div>
+      <div class="track-info">
+        <div class="now-playing">NOW PLAYING</div>
+        <h2 id="trackTitle">Choose a song</h2>
+        <p id="trackArtist">Your playlist is waiting</p>
+      </div>
+      <div class="progress-area">
+        <input id="seekBar" class="range seek" type="range" min="0" max="1000" value="0" aria-label="Seek through song">
+        <div class="time-row"><span id="currentTime">0:00</span><span id="duration">0:00</span></div>
+      </div>
+      <div class="controls">
+        <button id="shuffleBtn" class="utility" title="Shuffle" aria-label="Shuffle">⤨</button>
+        <button id="prevBtn" class="control" title="Previous" aria-label="Previous track">◀|</button>
+        <button id="playBtn" class="play-button" title="Play" aria-label="Play">▶</button>
+        <button id="nextBtn" class="control" title="Next" aria-label="Next track">|▶</button>
+        <button id="repeatBtn" class="utility" title="Repeat" aria-label="Repeat">↻</button>
+      </div>
+      <div class="volume-row"><span>VOL</span><input id="volumeBar" class="range volume" type="range" min="0" max="1" step="0.01" value="0.8" aria-label="Volume"><span id="volumeValue">80%</span></div>
+      <audio id="audio" preload="metadata"></audio>
+    </section>
+
+    <section class="playlist-section">
+      <div class="section-heading"><div><div class="eyebrow">UP NEXT</div><h2>Your playlist</h2></div><button id="clearBtn" class="text-button">Clear all</button></div>
+      <div id="emptyState" class="empty-state"><div class="empty-icon">♫</div><strong>No songs added yet</strong><span>Choose audio files from your device to get started.</span></div>
+      <ol id="playlist" class="playlist" aria-label="Playlist"></ol>
+    </section>
+
+    <footer>
+      <span>QuietBeat · A simple, ad-free local music player</span>
+      <span>Tip: Add MP3, M4A, WAV, OGG or other audio formats supported by your browser.</span>
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
